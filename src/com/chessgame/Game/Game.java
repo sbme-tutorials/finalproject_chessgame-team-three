@@ -200,7 +200,7 @@ public class Game {
 		}
 		drawDeadPieces();
 		DeadPieces();
-		if (Login.theme) {
+		if (Login.theme && board.deadPieces.size() != 0) {
 			Piece p = board.deadPieces.pop();
 			board.deadPieces.add(p);
 			if (p != null) {
