@@ -2,7 +2,7 @@
 # Multiverse Chess Game
 
 ## Project Idea
-Our project Idea is to make a multiplayer chess game 
+Our project Idea is to make a multiplayer chess game with a lot of features that are suitable for the user 
 
 ### Register Menu
 The user can create an account to start the game through the register menu :
