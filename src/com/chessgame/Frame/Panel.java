@@ -5,8 +5,11 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 //import java.io.Serial;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -31,7 +34,15 @@ public class Panel extends JPanel {
 		this.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == 37) {
-					Game.board.undoMove(game);
+					try {
+						Game.board.undoMove(game);
+					} catch (UnsupportedAudioFileException ex) {
+						throw new RuntimeException(ex);
+					} catch (LineUnavailableException ex) {
+						throw new RuntimeException(ex);
+					} catch (IOException ex) {
+						throw new RuntimeException(ex);
+					}
 					Game.drawDeadPieces();
 				}
 			}
@@ -95,8 +106,16 @@ public class Panel extends JPanel {
 		public void mouseReleased(MouseEvent e) {
 				int x = e.getX() / Piece.size;
 				int y = e.getY() / Piece.size;
+			try {
 				game.move(x, y);             // when releasing the mouse it takes the coordinates and move the active piece
-				revalidate();
+			} catch (UnsupportedAudioFileException ex) {
+				throw new RuntimeException(ex);
+			} catch (LineUnavailableException ex) {
+				throw new RuntimeException(ex);
+			} catch (IOException ex) {
+				throw new RuntimeException(ex);
+			}
+			revalidate();
 				repaint();
 		}
 	}

@@ -7,6 +7,9 @@ import java.util.*;
 import com.chessgame.Frame.Frame;
 import com.chessgame.Game.Game;
 import com.chessgame.Pieces.*;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -62,7 +65,7 @@ public class Board {
 	}
 
 	// for undo feature
-	public void undoMove(Game game) {
+	public void undoMove(Game game) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
 		if(!lastMoves.isEmpty()) {		// to check that the array list is not empty
 			Move move = lastMoves.pop();	// to undo the last move
 			Piece dead = deadPieces.pop();	 //	to get the last dead piece

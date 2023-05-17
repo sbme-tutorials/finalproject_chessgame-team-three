@@ -19,7 +19,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../programs/Java_projects_with_NetBeans/AbsoluteLayout-RELEASE170.jar!/" />
+          <root url="jar://$USER_HOME$/programs/Java_projects_with_NetBeans/AbsoluteLayout-RELEASE170.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,7 +28,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../programs/Java_projects_with_NetBeans/AbsoluteLayout-RELEASE170.jar!/" />
+          <root url="jar://C:/Users/programs/Java_projects_with_NetBeans/AbsoluteLayout-RELEASE170.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -47,6 +47,15 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../programs/Java_projects_with_NetBeans/AbsoluteLayout-RELEASE170.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/jar_files/AbsoluteLayout-RELEASE160.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

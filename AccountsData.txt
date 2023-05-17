@@ -68,3 +68,4 @@ s,s,s
 r,r,r
 n,n,n
 j,j,j
+a,a,1

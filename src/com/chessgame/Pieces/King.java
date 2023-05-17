@@ -1,6 +1,8 @@
 package com.chessgame.Pieces;
+import Login_Form.Login;
 import com.chessgame.Board.Board;
 import com.chessgame.Board.Move;
+import com.chessgame.Board.PopupExample;
 import com.chessgame.Game.Game;
 
 public class King extends Piece {
@@ -133,6 +135,8 @@ public class King extends Piece {
 	public boolean isInCheck() {
 		for(Move m: Game.allEnemyMove) {
 			if(m.getToX() == xCord && m.getToY() == yCord) {
+				if(Login.theme)
+				  new PopupExample();
 				return true;
 			}
 		}

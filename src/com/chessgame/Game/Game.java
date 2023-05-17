@@ -7,6 +7,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.*;
 import java.util.*;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -14,6 +16,7 @@ import Login_Form.Player;
 import Login_Form.SetUp;
 import com.chessgame.Board.Board;
 import com.chessgame.Board.Move;
+import com.chessgame.Board.PopupExample;
 import com.chessgame.Frame.Frame;
 import com.chessgame.Frame.LabelTimer;
 import com.chessgame.Pieces.*;
@@ -179,7 +182,7 @@ public class Game {
 		}
 	}
 
-	public void changeSide() {
+	public void changeSide() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
 		player = !player;
 		generateEnemyMoves(board);
 		generatePlayersTurnMoves(board);
@@ -197,6 +200,16 @@ public class Game {
 		}
 		drawDeadPieces();
 		DeadPieces();
+		if (Login.theme) {
+			Piece p = board.deadPieces.pop();
+			board.deadPieces.add(p);
+			if (p != null) {
+				new PopupExample(board.pieces[p.getXcord()][p.getYcord()]);
+			}
+			PopupExample.counter =0;
+		}
+
+
 	}
 
 	public void selectPiece(int x, int y) {
@@ -335,7 +348,7 @@ modifications to the clone, we can ensure that the original game state is not af
 		}
 	}
 
-	public void move(int x, int y) {
+	public void move(int x, int y) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
 		if (active != null) {
 			if (active.makeMove(x, y, board)) {
 				tryToPromote(active);
